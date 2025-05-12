@@ -31,10 +31,10 @@ This is a Proof of Delivery (POD) system built with FastAPI. It allows you to as
 - **Endpoint**: `POST /confirm_delivery/{delivery_id}`
 - **Request Body**:
   ```json
-  {
+     {
   "otp": 123456,
   "location": "string"
-}
+    }
 
  - **Response**:
     ```json
@@ -53,15 +53,15 @@ This is a Proof of Delivery (POD) system built with FastAPI. It allows you to as
 - **Endpoint**: `POST /generate_pod/{delivery_id}`
 - **Response**:
     ```json
-     {
+       {
       "POD Receipt": {
       "Delivery ID": "string",
       "Customer Name": "string",
       "Delivery Location": "string",
       "Timestamp": "string",
       "OTP Used": 123456
-    }
-}
+       }
+     }
 
 ### 4. Get All Deliveries
 - **Endpoint**: `GET /get_deliveries`
@@ -75,8 +75,8 @@ This is a Proof of Delivery (POD) system built with FastAPI. It allows you to as
     "otp": 123456,
     "delivered": false,
     "timestamp": null
-  }
-}
+     }
+   }
 
 ### 5. Download POD PDF
 - **Endpoint**: `GET /download_pod/{delivery_id}`
