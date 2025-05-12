@@ -84,7 +84,7 @@ This is a Proof of Delivery (POD) system built with FastAPI. It allows you to as
 
 ### Live URL
   Access the live API at the following URL:
-   https://your-app-name.up.railway.app
+   (https://podsystem-production.up.railway.app)
 ### Running Locally
 **Clone the repository**.
 **Install dependencies:**
