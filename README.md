@@ -1,75 +1,97 @@
-# 📦 Proof of Delivery (POD) System – FastAPI
+# POD System
 
-A lightweight FastAPI backend to manage delivery assignments, verify OTP-based confirmations, generate and download Proof of Delivery (POD) PDFs.
+## Description
+This is a Proof of Delivery (POD) system built with FastAPI. It allows you to assign deliveries, confirm deliveries using OTP, generate Proof of Delivery (POD) receipts, and download them.
 
----
+## Features
+- **Assign Delivery**: Assign deliveries and generate OTP.
+- **Confirm Delivery**: Confirm delivery using OTP and location.
+- **Generate POD**: Generate Proof of Delivery (POD) receipt.
+- **Download POD**: Download the POD receipt as a PDF.
+- **Get Deliveries**: View all assigned deliveries.
 
-## 🚀 Features
+## API Endpoints
 
-- 📬 Assign deliveries with OTP generation
-- 🔐 Confirm deliveries via OTP + location
-- 🧾 Auto-generate POD PDF upon confirmation
-- 📥 Download POD as a PDF
-- 📦 View all assigned deliveries
-
----
-
-## 🛠 Setup
-
-### 1. Clone & Install
-
-```bash
-git clone https://github.com/your-username/pod-system.git
-cd pod-system
-pip install fastapi uvicorn reportlab
-
-**2. Run the API**
-uvicorn pod_system:app --reload
-
-**API Endpoints**
-**➕ Assign Delivery**
-
-**POST /assign_delivery**
-Body:
-
-{
-  "id": "DEL123",
-  "customer_name": "Alice",
-  "location": "New York"
-}
-**✅ Confirm Delivery**
-
-**POST /confirm_delivery/{delivery_id}**
-Body:
-
-{
+### 1. Assign Delivery
+- **Endpoint**: `POST /assign_delivery`
+- **Request Body**:
+  ```json
+  {
+    "id": "string",
+    "customer_name": "string",
+    "location": "string"
+  }
+ - **Response**:
+    ```json
+      {
+        "message": "Delivery assigned successfully",
+        "otp": 123456
+      }
+### 2. Confirm Delivery
+- **Endpoint**: `POST /confirm_delivery/{delivery_id}`
+- **Request Body**:
+  ```json
+  {
   "otp": 123456,
-  "location": "New York"
+  "location": "string"
 }
-**🧾 Generate POD Metadata**
 
-**POST /generate_pod/{delivery_id}**
-**📥 Download POD PDF**
+ - **Response**:
+    ```json
+      {
+  "message": "Delivery confirmed",
+  "POD": {
+    "Delivery ID": "string",
+    "Customer Name": "string",
+    "Location": "string",
+    "Timestamp": "string",
+    "OTP Used": 123456,
+    "PDF Path": "string"
+        }
+    }
+### 3. Generate POD
+- **Endpoint**: `POST /generate_pod/{delivery_id}`
+- **Response**:
+    ```json
+     {
+      "POD Receipt": {
+      "Delivery ID": "string",
+      "Customer Name": "string",
+      "Delivery Location": "string",
+      "Timestamp": "string",
+      "OTP Used": 123456
+    }
+}
 
-**GET /download_pod/{delivery_id}**
-**📋 Get All Deliveries**
+### 4. Get All Deliveries
+- **Endpoint**: `GET /get_deliveries`
+- **Response**:
+    ```json
+     {
+  "DEL123": {
+    "id": "DEL123",
+    "customer_name": "John Doe",
+    "location": "New York",
+    "otp": 123456,
+    "delivered": false,
+    "timestamp": null
+  }
+}
 
-GET /get_deliveries
-📂 Output Example
-A successful confirmation generates a PDF:
-DEL123_POD.pdf
-🧠 Tech Stack
-FastAPI – Web API framework
+### 5. Download POD PDF
+- **Endpoint**: `GET /download_pod/{delivery_id}`
+- **Response**: Returns a downloadable PDF of the POD.
 
-ReportLab – PDF generation
-
-Uvicorn – ASGI server
-
-💡 Use Cases
-E-commerce delivery confirmation
-
-Field service logging
-
-Digital proof receipts with download links
-
+### Live URL
+  Access the live API at the following URL:
+   https://your-app-name.up.railway.app
+### Running Locally
+**Clone the repository**.
+**Install dependencies:**
+    pip install -r requirements.txt
+**Run the application:**
+    uvicorn pod_system:app --reload
+Access the API at http://127.0.0.1:8000.
+### Deployment
+This project is deployed on Railway. You can access it live at the URL mentioned above. For further details, refer to the deployment section in the Railway dashboard.
 
