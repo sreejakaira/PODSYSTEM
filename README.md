@@ -94,4 +94,12 @@ This is a Proof of Delivery (POD) system built with FastAPI. It allows you to as
 Access the API at http://127.0.0.1:8000.
 ### Deployment
 This project is deployed on Railway. You can access it live at the URL mentioned above. For further details, refer to the deployment section in the Railway dashboard.
+## Demo
+
+🎥 **Watch a screen recording of the POD System in action:**
+
+[![Watch the demo](https://drive.google.com/file/d/16Fbhn19fRr4E8TAxt92HCMrFnKYzekey/view?usp=sharing)]
+
+
+
 
