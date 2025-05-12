@@ -98,8 +98,7 @@ This project is deployed on Railway. You can access it live at the URL mentioned
 
 🎥 **Watch a screen recording of the POD System in action:**
 
-[![Watch the demo](https://drive.google.com/file/d/16Fbhn19fRr4E8TAxt92HCMrFnKYzekey/view?usp=sharing)]
-
+[![Watch the demo](https://img.shields.io/badge/▶️%20Watch-Demo-blue)](https://drive.google.com/file/d/16Fbhn19fRr4E8TAxt92HCMrFnKYzekey/view?usp=sharing)
 
 
 
