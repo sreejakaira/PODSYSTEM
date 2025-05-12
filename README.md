@@ -48,7 +48,7 @@ This is a Proof of Delivery (POD) system built with FastAPI. It allows you to as
           "OTP Used": 123456,
           "PDF Path": "string"
               }
-    }
+      } 
 ### 3. Generate POD
 - **Endpoint**: `POST /generate_pod/{delivery_id}`
 - **Response**:
